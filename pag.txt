@@ -1,0 +1,28 @@
+$this->load->library('pagination');
+		$config['base_url'] = $link;
+		$config['total_rows'] = $this->My_model->Cout_table('user');
+		$config['per_page'] = $limit;
+		$config['uri_segment'] = 3;
+		$config['num_links'] = 3;
+		$config['full_tag_open'] = '<nav><ul class="pagination pagination-sm">';
+		$config['full_tag_close'] = '</ul></nav>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="">';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = 'next_link';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_link'] = 'prev_link';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$this->pagination->initialize($config);
+		
+		return $this->pagination->create_links();
