@@ -1,0 +1,23 @@
+<button type="submit" id="btnmedia" class="button" > Add Media</button>
+<div id="listimg">
+</div>
+<ul id="list">
+</ul>
+<script src="<?php bloginfo('template_url')?>/assets/js/jquery-1.12.1.min.js"></script>
+<script>
+<?php wp_enqueue_media();
+ ?>
+$(document).ready(function(e) {
+	$('#btnmedia').click(function(e) {
+        e.preventDefault();
+        var frame  = wp.media({ 
+            title: 'Upload Image',
+            multiple: false
+        }).open().on('select', function(e){
+            var uploaded_image = frame.state().get('selection').first();
+            var image_url = uploaded_image.toJSON().url;
+            $('#listimg').append('<img src="'+image_url+'" width="200">');
+        });
+    });
+});
+</script>
