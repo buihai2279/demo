@@ -1,8 +1,6 @@
 <button type="submit" id="btnmedia" class="button" > Add Media</button>
 <div id="listimg">
 </div>
-<ul id="list">
-</ul>
 <script src="<?php bloginfo('template_url')?>/assets/js/jquery-1.12.1.min.js"></script>
 <script>
 <?php wp_enqueue_media();
